@@ -128,3 +128,11 @@ app.get('/data', async(req, res) => {
 app.listen(8080, () => {
     console.log(`Listening on PORT: 8080`)
 })
+
+
+if (azimuth >= 0 && azimuth <= 180) {
+    azimuth = azimuth = 0 - (180 - azimuth)
+}
+elif(azimuth > 180 && azimuth < 360) {
+    azimuth = 180 - (360 - azimuth)
+}

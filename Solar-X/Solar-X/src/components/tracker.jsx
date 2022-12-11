@@ -90,8 +90,9 @@ const PerformaceTracker = () => {
                             <span>Azimuth: </span>
                             <span className="sun_azimuth">{
                                 azimuth == "dark" ? "dark"
-                                : azimuth.toFixed(4)
-                            }°</span>
+                                : (azimuth <= 0 && azimuth >= -180) ? (0 - (180 - (360 + azimuth))).toFixed(4) : ""
+                                }
+                            °</span>
                         </div>
                     </div>
                 </div>

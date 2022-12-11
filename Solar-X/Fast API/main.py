@@ -91,7 +91,7 @@ def sunPosition(lat, long, parHour, parMin):
     az = math.degrees(az_rad)
     print(az)
     if (az >= 0 and az <= 180):
-        az = az = 0 - (180 - az)
+        az = 0 - (180 - az)
     elif (az > 180 and az < 360 ):
         az = 180 - (360 - az)
 
