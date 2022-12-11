@@ -1,0 +1,76 @@
+.PV_performaceTracker {
+    width: 69.5%;
+    height: 100vh;
+    max-height: 100vh;
+    overflow-y: auto;
+    padding: 30px 40px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+    color: white;
+}
+
+.PV_performaceTracker .hoverBoards {
+    margin: 20px 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: flex-start;
+    height: max-content;
+}
+
+.hoverBoards .item {
+    padding: 20px 60px 20px 20px;
+    background-color: #191d21;
+    margin-right: 20px;
+    border: 1px solid rgb(69, 69, 73);
+    border-radius: 10px;
+}
+
+.hoverBoards .item div.title:first-child {
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.hoverBoards .item div.data div:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+
+/* ---------------------------------------------------- */
+
+.PV_performaceTracker div.table {
+    width: 100%;
+    height: max-content;
+}
+
+.PV_performaceTracker div.table table {
+    margin: 20px 0;
+    width: 100%;
+    height: max-content;
+    border-collapse: collapse;
+}
+
+.PV_performaceTracker div.table table thead {
+    background-color: #2e3336;
+}
+
+.PV_performaceTracker div.table table thead th {
+    padding: 10px 0;
+}
+
+.PV_performaceTracker div.table table tbody tr td {
+    text-align: center;
+    padding: 10px 0 10px 0;
+    border-bottom: 1px solid #3d4247;
+}
+
+.PV_performaceTracker div.table table tbody tr:first-child td {
+    padding-top: 15px;
+}

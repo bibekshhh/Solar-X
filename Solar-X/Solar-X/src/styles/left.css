@@ -1,0 +1,118 @@
+.main .data-summary {
+    position: relative;
+    width: 30.5%;
+    min-width: 450px;
+    height: 100vh;
+    padding-right: 0.5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border-right: 1px solid rgba(39, 39, 41, 0.933);
+}
+
+.main .data-summary .title {
+    margin-bottom: 15px;
+}
+
+.main .data-summary form {
+    width: 90%;
+}
+
+.main .data-summary .providedInputs {
+    width: 100% !important;
+}
+
+.main .data-summary .providedInputs,
+.main .data-summary .simulation-output {
+    margin-bottom: 25px;
+    width: 90%;
+    padding: 17px 25px;
+    border: 1px solid rgb(69, 69, 73);
+    color: white;
+    background-color: #191d21;
+}
+
+.main .data-summary .simulation-output {
+    margin-bottom: 0;
+}
+
+.main .data-summary .providedInputs input {
+    width: 100%;
+    padding: 3.5px 5px;
+    text-indent: 5px;
+    background: #3b4249;
+    border: 0px;
+    color: white;
+}
+
+.main .data-summary .providedInputs input::placeholder {
+    color: white;
+    opacity: 0.75;
+}
+
+.main .data-summary .providedInputs .aboutPV input {
+    width: 50%;
+    text-align: right;
+}
+
+.main .data-summary .providedInputs .aboutPV span:last-child {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.main .data-summary .providedInputs div,
+.main .data-summary .simulation-output div {
+    margin-bottom: 12px;
+}
+
+.main .data-summary .simulation-output .lossCalculation div:not(:first-child, :last-child) {
+    margin-left: 20px;
+}
+
+.main .data-summary .providedInputs div.item,
+.main .data-summary .simulation-output div.item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main .data-summary .simulation-output div.item.bold {
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.main .data-summary .providedInputs button {
+    margin-top: 15px;
+    width: 100%;
+    padding: 10px 10px;
+    border: 1px solid #cccc;
+    border-radius: 5px;
+    color: black;
+    cursor: pointer;
+    background-color: white;
+}
+
+.main .data-summary .providedInputs button:hover {
+    box-shadow: 0 2.5px 5px #cccc;
+}
+
+.peak_PV_power {
+    background-color: #262a2f !important;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    display: none;
+    -webkit-appearance: none;
+    margin: 0;
+    padding-right: 5px;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+    /* Firefox */
+}
