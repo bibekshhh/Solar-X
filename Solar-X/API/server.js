@@ -2,11 +2,12 @@ import axios from 'axios';
 import express from 'express';
 import cors from 'cors';
 
-var app = express()
+const app = express()
 app.use(cors())
 
+const PORT = process.env.PORT || 8000;
+
 app.get('/data', async(req, res) => {
-    console.log('Helo bitch')
     const latitude = req.query.lat;
     const longitude = req.query.long;
 
@@ -16,7 +17,7 @@ app.get('/data', async(req, res) => {
         try {
             const resPos = await axios({
                 method: 'get',
-                url: `http://127.0.0.1:8000/solarPos?latitude=${lat}&longitude=${long}&parHour=${time.substring(0,2)}&parMin=${time.substring(3,5)}`,
+                url: `http://127.0.0.1:${PORT}/solarPos?latitude=${lat}&longitude=${long}&parHour=${time.substring(0,2)}&parMin=${time.substring(3,5)}`,
                 headers: {}
             });
 
@@ -33,9 +34,7 @@ app.get('/data', async(req, res) => {
         }
     }
 
-
     async function resPromise(lat, long, month) {
-
         const arrOfTime = ["00:30", "01:30", "02:30", "03:30", "04:30",
             "05:30", "06:30", "07:30", "08:30", "09:30",
             "10:30", "11:30", "12:30", "13:30", "14:30",
@@ -58,7 +57,6 @@ app.get('/data', async(req, res) => {
             for (let i = 0; i < res.length; i++) {
                 if (res[i] != null) {
                     solarposData.push(res[i])
-                        // console.log(res[i])
 
                     if (res[i + 1] != null) {
                         var meanElevation = (res[i].elevation + res[i + 1].elevation) / 2;
@@ -95,7 +93,6 @@ app.get('/data', async(req, res) => {
 
     async function displayData(lat, long, month) {
         var [solarposData, irradianceData] = await resPromise(lat, long, month);
-
         var [global, direct, diffuse] = [0, 0, 0];
 
         for (let i = 0; i < irradianceData.length; i++) {
@@ -120,19 +117,10 @@ app.get('/data', async(req, res) => {
         ];
     }
 
-    console.log(await displayData(latitude, longitude, 12))
     res.json(await displayData(latitude, longitude, 12));
     return await displayData(latitude, longitude, 12);
 });
 
-app.listen(8080, () => {
-    console.log(`Listening on PORT: 8080`)
+app.listen(PORT, () => {
+    console.log(`Listening on PORT: ${PORT}`)
 })
-
-
-if (azimuth >= 0 && azimuth <= 180) {
-    azimuth = azimuth = 0 - (180 - azimuth)
-}
-elif(azimuth > 180 && azimuth < 360) {
-    azimuth = 180 - (360 - azimuth)
-}

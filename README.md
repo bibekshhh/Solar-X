@@ -1,5 +1,5 @@
 # Solar-X
-Realtime Solar Position Tracker to track the Sun position for correct PV orientation i.e (azimuth &amp; elevation). A performance tracker based on PVGIS-ERA5 database of past 15 years of Solar Irradiance data for a specific latitude and longitude at a certain date.
+Realtime Solar Position Tracker to track the Sun position for correct PV (Photo Voltaic Cell or Solar Panel) orientation i.e (azimuth &amp; elevation). A performance tracker is implemented based on PVGIS-ERA5 database of past 15 years of Solar Irradiance data for a specific latitude and longitude at a certain time interval.
 
 
 ## Run the app via following steps:
@@ -34,26 +34,31 @@ python -m uvicorn main:app --reload
 cd Solar-X
 ```
 
-Installing node packages for parent directory
+### Run the ExpressJS API Server
+
+```
+cd API
+```
+
+```
+node server.js
+```
+
+#### Move to the Client directory
+```
+cd ../Client
+```
+
+Installing node packages for Client directory
 ```
 npm install
 ```
 
-#### Move to child Solar-X/Solar-X directory
+## At last, move to parent /Solar-X directory 
 ```
-cd Solar-X/Solar-X/src
-```
-
-Installing node packages for child directory
-```
-npm install
+cd ../
 ```
 
-```
-node ./app.js
-```
-
-## At last, move to parent /Solar-X directory and 
 ```
 npm run dev
 ```
